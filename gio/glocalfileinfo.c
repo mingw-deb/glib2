@@ -1228,7 +1228,7 @@ get_content_type (const char          *basename,
       (symlink_broken || (flags & G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS)))
     return g_content_type_from_mime_type ("inode/symlink");
   else if (statbuf != NULL && S_ISDIR(statbuf->st_mode))
-    return g_content_type_from_mime_type ("inode/directory");
+    return g_strdup ("inode/directory");
 #ifndef G_OS_WIN32
   else if (statbuf != NULL && S_ISCHR(statbuf->st_mode))
     return g_content_type_from_mime_type ("inode/chardevice");
