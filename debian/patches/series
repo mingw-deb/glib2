@@ -1,0 +1,7 @@
+0001-Revert-glib-compile-schemas-warn-about-bad-dconf-pat.patch
+0002-Use-CreateFile-on-Win32-to-make-shure-g_unlink-alway.patch
+0003-glib-prefer-constructors-over-DllMain.patch
+0004-no-sys-if-nametoindex.patch
+0005-inode-directory.patch
+0006-use-pkgconfig-file-for-intl.patch
+0007-skip-broken-timer-test.patch

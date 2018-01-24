@@ -1,0 +1,37 @@
+From 7627391bb8e7a7dde0be7144a116f64b6dae71ed Mon Sep 17 00:00:00 2001
+From: Tobias Schlemmer <keinstein@users.sourceforge.net>
+Date: Wed, 24 Jan 2018 21:00:19 +0100
+Subject: use pkgconfig file for intl
+
+---
+ configure.ac   | 2 ++
+ glib-2.0.pc.in | 3 ++-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 58cd3f28c..e00b0c8f4 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -471,6 +471,8 @@ if test "$gt_cv_have_gettext" != "yes" ; then
+ fi
+ 
+ LIBS="$INTLLIBS $LIBS"
++INTL_REQUIRES=intl
++AC_SUBST(INTL_REQUIRES)
+ 
+ GETTEXT_PACKAGE=glib20
+ AC_SUBST(GETTEXT_PACKAGE)
+diff --git a/glib-2.0.pc.in b/glib-2.0.pc.in
+index 275fc0163..3d1d16ba0 100644
+--- a/glib-2.0.pc.in
++++ b/glib-2.0.pc.in
+@@ -10,7 +10,8 @@ glib_mkenums=glib-mkenums
+ Name: GLib
+ Description: C Utility Library
+ Version: @VERSION@
+-Requires.private: @PCRE_REQUIRES@
++Requires: @INTL_REQUIRES@
++Requires.private: @PCRE_REQUIRES@ @INTL_REQUIRES@
+ Libs: -L${libdir} -lglib-2.0 @INTLLIBS@
+ Libs.private: @G_THREAD_LIBS@ @G_LIBS_EXTRA@ @PCRE_LIBS@ @INTLLIBS@ @ICONV_LIBS@ @CARBON_LIBS@ @COCOA_LIBS@
+ Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include @GLIB_EXTRA_CFLAGS@

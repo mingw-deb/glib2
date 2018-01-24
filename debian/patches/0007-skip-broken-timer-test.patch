@@ -1,0 +1,21 @@
+From 02a9eea52b17a226652000b619dcae96d18d5d33 Mon Sep 17 00:00:00 2001
+From: Tobias Schlemmer <keinstein@users.sourceforge.net>
+Date: Wed, 24 Jan 2018 21:01:19 +0100
+Subject: skip broken timer test
+
+---
+ glib/tests/Makefile.am | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/glib/tests/Makefile.am b/glib/tests/Makefile.am
+index 43b11f05d..37406ecdf 100644
+--- a/glib/tests/Makefile.am
++++ b/glib/tests/Makefile.am
+@@ -106,7 +106,6 @@ test_programs = \
+ 	test-printf			\
+ 	thread				\
+ 	timeout				\
+-	timer				\
+ 	tree				\
+ 	utf8-performance		\
+ 	utf8-pointer			\

@@ -1,0 +1,27 @@
+From 9b61fa47068842449bc8d582db7ea4dbe6ed7474 Mon Sep 17 00:00:00 2001
+From: Tobias Schlemmer <keinstein@users.sourceforge.net>
+Date: Wed, 24 Jan 2018 20:50:25 +0100
+Subject: Revert "glib-compile-schemas: warn about bad dconf paths"
+
+This reverts commit 6560b37450cd19c4a7c7b690e279fe97b7bfdcaa.
+---
+ gio/glib-compile-schemas.c | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/gio/glib-compile-schemas.c b/gio/glib-compile-schemas.c
+index e190ff5af..bc42e11b4 100644
+--- a/gio/glib-compile-schemas.c
++++ b/gio/glib-compile-schemas.c
+@@ -1217,12 +1217,6 @@ parse_state_start_schema (ParseState  *state,
+       return;
+     }
+ 
+-  if (path && (g_str_has_prefix (path, "/apps/") ||
+-               g_str_has_prefix (path, "/desktop/") ||
+-               g_str_has_prefix (path, "/system/")))
+-    g_printerr ("warning: Schema '%s' has path '%s'.  Paths starting with "
+-                "'/apps/', '/desktop/' or '/system/' are deprecated.\n", id, path);
+-
+   state->schema_state = schema_state_new (path, gettext_domain,
+                                           extends, extends_name, list_of);
+ 

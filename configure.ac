@@ -471,6 +471,8 @@ if test "$gt_cv_have_gettext" != "yes" ; then
 fi
 
 LIBS="$INTLLIBS $LIBS"
+INTL_REQUIRES=intl
+AC_SUBST(INTL_REQUIRES)
 
 GETTEXT_PACKAGE=glib20
 AC_SUBST(GETTEXT_PACKAGE)
