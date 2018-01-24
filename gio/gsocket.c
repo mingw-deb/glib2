@@ -2139,7 +2139,7 @@ g_socket_bind (GSocket         *socket,
 
 #if !defined(HAVE_IF_NAMETOINDEX) && defined(G_OS_WIN32)
 static guint
-if_nametoindex (const gchar *iface)
+w32_if_nametoindex (const gchar *iface)
 {
   PIP_ADAPTER_ADDRESSES addresses = NULL, p;
   gulong addresses_len = 0;
@@ -2192,6 +2192,7 @@ if_nametoindex (const gchar *iface)
 }
 
 #define HAVE_IF_NAMETOINDEX 1
+#define if_nametoindex w32_if_nametoindex
 #endif
 
 static gboolean
