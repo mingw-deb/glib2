@@ -1,22 +1,26 @@
 Source: mingw-w64-glib2
 Priority: optional
 Maintainer: Tobias Schlemmer <keinstein@users.berlios.de>
-Build-Depends: debhelper (>= 9)
-Standards-Version: 3.9.8
+Build-Depends: debhelper (>= 9), autotools-dev,
+	       git, gtk-doc-tools, python, libz-mingw-w64,
+	       shared-mime-info,
+ 	       gcc-mingw-w64, g++-mingw-w64 (>= 1.7.1),
+	       libffi-mingw-w64-dev, libpcre-mingw-w64-dev,
+Standards-Version: 4.1.1
 Section: libs
-Homepage: <insert the upstream URL, if relevant>
+Homepage: http://www.gtk.org/
 #Vcs-Git: https://anonscm.debian.org/collab-maint/mingw-w64-glib2.git
 #Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/mingw-w64-glib2.git
 
-Package: mingw-w64-glib2-dev
+Package: glib2-mingw-w64-dev
 Section: libdevel
 Architecture: any
-Depends: mingw-w64-glib2BROKEN (= ${binary:Version}), ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: glib2-1-mingw-w64 (= ${binary:Version}), ${misc:Depends}
+Description: Low level core library (mingw-w64 development-files)
+ This package contains the development files.
 
-Package: mingw-w64-glib2BROKEN
+Package: glib2-1-mingw-w64
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: Low level core library (mingw-w64 runtime)
+ This package contains the runtime
